@@ -4,7 +4,15 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'beat': 'beat .50s infinite alternate'
+      },
+    },
+    fontFamily: {
+      courgette: 'courgette',
+      dancing: 'dancing-script',
+    },
   },
   plugins: [],
 }
