@@ -1,3 +1,15 @@
 :host {
-  display: block;
+  @apply block;
+}
+
+mat-form-field {
+  @apply w-full;
+}
+
+mat-button-toggle.mat-button-toggle-checked[value='present'] {
+  @apply bg-lime-500 font-medium;
+}
+
+mat-button-toggle.mat-button-toggle-checked[value='absent'] {
+  @apply bg-red-500 font-medium text-white;
 }

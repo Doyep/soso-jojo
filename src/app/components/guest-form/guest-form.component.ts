@@ -1,10 +1,13 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { ControlContainer, FormArray, FormBuilder, FormGroup, FormGroupDirective, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-guest-form',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonToggleModule],
   templateUrl: './guest-form.component.html',
   styleUrl: './guest-form.component.scss',
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective}]
@@ -14,7 +17,7 @@ export class GuestFormComponent {
   public form = new FormGroup({});
 
   @Output()
-  public removeEvent = new EventEmitter<number>();
+  public removeEvent = new EventEmitter<void>();
 
   constructor(private parentForm: FormGroupDirective) {}
 
@@ -24,6 +27,6 @@ export class GuestFormComponent {
   }
 
   onRemove() {
-    this.removeEvent.emit(this.formGroupName)
+    this.removeEvent.emit()
   }
 }
