@@ -5,8 +5,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      animation: {
-        'beat': 'beat .50s infinite alternate'
+      backgroundImage: {
+        'soso-jojo': "url('/assets/images/main.jpg')",
       },
     },
     fontFamily: {
