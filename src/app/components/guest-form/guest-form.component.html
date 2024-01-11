@@ -1,0 +1,11 @@
+<div [formGroup]="form">
+  <label>
+    <span>Nom :</span>
+    <input formControlName="lastName" class="border" ngDefaultControl>
+  </label>
+  <label>
+    <span>Prénom :</span>
+    <input formControlName="firstName" class="border" ngDefaultControl>
+  </label>
+  <button (click)="onRemove()">Remove {{ form.get('lastName')?.value }}</button>
+</div>
