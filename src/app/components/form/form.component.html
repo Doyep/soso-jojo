@@ -1,0 +1,8 @@
+<form [formGroup]="form">
+  <div formArrayName="guests">
+    @for (guest of guests.controls; track guest; let i = $index) {
+      <app-guest-form [formGroupName]="i" (removeEvent)="onRemoveGuest($event)"></app-guest-form>
+    }
+  </div>
+</form>
+<button (click)="addGuest()" class="border">Add</button>
