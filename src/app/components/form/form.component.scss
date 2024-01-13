@@ -1,0 +1,44 @@
+
+form {
+  @apply h-full flex flex-col bg-white opacity-95 rounded-lg;
+}
+
+header {
+  @apply px-6 py-4 flex flex-row items-stretch items-center justify-between;
+
+  h1 {
+    @apply m-0;
+  }
+
+  & > button.mdc-button {
+    @apply bg-gold;
+  }
+}
+
+main {
+  @apply h-full overflow-auto;
+
+  .mat-expansion-panel:not(.mat-expanded) > mat-expansion-panel-header.present {
+    @apply bg-lime-100;
+  }
+  .mat-expansion-panel:not(.mat-expanded) > mat-expansion-panel-header.absent {
+    @apply bg-red-100;
+  }
+
+  .custom-header {
+    @apply w-full flex flex-row items-center justify-between gap-x-4;
+  }
+
+  span.name {
+    @apply truncate;
+  }
+
+  mat-icon {
+    @apply shrink-0;
+  }
+
+}
+
+footer {
+  @apply px-6 py-4 flex flex-row items-stretch items-center justify-between;
+}

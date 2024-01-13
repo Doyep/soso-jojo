@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+  <mat-button-toggle-group formControlName="status">
+    <mat-button-toggle value="absent">Absent</mat-button-toggle>
+    <mat-button-toggle value="present">Présent</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
