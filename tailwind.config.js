@@ -19,6 +19,7 @@ module.exports = {
     fontFamily: {
       courgette: 'courgette',
       dancing: 'dancing-script',
+      cinzel: 'cinzel-decorative',
     },
   },
   plugins: [],

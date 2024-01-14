@@ -1,0 +1,15 @@
+:host {
+  @apply flex flex-col;
+}
+
+p {
+  @apply self-center text-center;
+
+  &.cinzel {
+    @apply font-cinzel text-3xl;
+  }
+
+  &.dancing {
+    @apply font-dancing text-xl;
+  }
+}
