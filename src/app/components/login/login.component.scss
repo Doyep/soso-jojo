@@ -1,0 +1,36 @@
+:host {
+  @apply h-full flex items-center justify-center;
+}
+
+.logo {
+  @apply w-32 cursor-pointer bg-gold/95 rounded-full;
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( 0.8 );
+  }
+  10%
+  {
+    transform: scale( 1 );
+  }
+  20%
+  {
+    transform: scale( 0.8 );
+  }
+  30%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( 0.8 );
+  }
+  100%
+  {
+    transform: scale( 0.8 );
+  }
+}

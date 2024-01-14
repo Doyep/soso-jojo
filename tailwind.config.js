@@ -12,7 +12,8 @@ module.exports = {
         'soso-jojo': "url('/assets/images/background-mini.jpg')",
       },
       colors: {
-        'gold': 'rgb(251, 166, 7)',
+        // 'gold': 'rgb(251, 166, 7)',
+        'gold': 'rgb(249, 223, 164)',
         'pine': 'rgb(57, 90, 53)',
       },
     },
