@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    screens: {
+      'sm': '30rem'
+    },
     extend: {
       backgroundImage: {
         'soso-jojo': "url('/assets/images/background-mini.jpg')",

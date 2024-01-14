@@ -1,7 +1,9 @@
 .background {
-  @apply block max-w-screen-sm h-dvh p-8 bg-soso-jojo bg-left-top bg-cover;
+  @apply block h-dvh p-8 bg-soso-jojo bg-cover;
+  @apply max-w-[30rem];
+  @apply sm:w-[30rem];
 }
 
 main {
-  @apply h-full bg-white opacity-95 rounded-lg;
+  @apply block h-full overflow-auto bg-white opacity-95 rounded-[2rem];
 }
