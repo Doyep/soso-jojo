@@ -1,0 +1,23 @@
+<h1 class="!font-courgette text-center !mb-8 flex-none">{{ mode === 'create' ? 'Ajouter' : 'Modifier' }} un invité</h1>
+
+<form class="flex-1">
+  <div [formGroup]="formGroup">
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-button-toggle-group formControlName="status">
+      <mat-button-toggle value="absent">Absent</mat-button-toggle>
+      <mat-button-toggle value="present">Présent</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</form>
+
+<div class="flex gap-4 justify-between mb-2 flex-none">
+  <button class="flex-1" mat-raised-button [routerLink]="['/list']">Annuler</button>
+  <button class="flex-1" mat-raised-button [disabled]="formGroup.invalid" (click)="onSubmit()">ENVOYER</button>
+</div>

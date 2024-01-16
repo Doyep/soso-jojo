@@ -13,7 +13,7 @@ import { Router, RouterModule } from '@angular/router';
 export class AnnouncementComponent {
   constructor(private router: Router) { }
 
-  public navigateToForm() {
-    this.router.navigateByUrl('/form')
+  public navigateToList() {
+    this.router.navigateByUrl('/list')
   }
 }

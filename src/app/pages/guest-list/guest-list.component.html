@@ -1,0 +1,29 @@
+<h1 class="!font-courgette text-center">Votre réponse</h1>
+<button mat-raised-button class="mb-8 flex-none !bg-gold" (click)="onCreate()">
+  <mat-icon>add</mat-icon>
+  Ajouter une personne
+</button>
+
+<div class="flex-1 flex flex-col gap-2 mb-8 overflow-auto">
+  @for(guest of $guests | async; track guest.id; let i = $index) {
+    <mat-card>
+      <mat-card-content class="rounded-[4px]" [ngClass]="{'bg-lime-200/50': guest.status === 'present', 'bg-red-200/50': guest.status === 'absent'}">
+        <div class="flex items-center justify-center">
+          <span class="flex-1">{{ guest.firstName}} {{ guest.lastName }}</span>
+          <span [ngClass]="{'text-lime-700': guest.status === 'present', 'text-red-700': guest.status === 'absent'}">{{ guest.status }}</span>
+          <mat-icon class="cursor-pointer ml-4 mr-2 flex-none" [routerLink]="['/guest', guest.id]">create</mat-icon>
+          <mat-icon class="cursor-pointer flex-none text-red-500" (click)="onDelete(guest)">delete</mat-icon>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  } @empty {
+    <mat-card>
+      <mat-card-content>Vous devez ajouter au moins une personne pour valider votre réponse</mat-card-content>
+    </mat-card>
+  }
+</div>
+
+<div class="flex gap-4 justify-between mb-2 flex-none">
+  <button class="flex-1" mat-raised-button [routerLink]="['/announcement']">RETOUR</button>
+  <button class="flex-1" mat-raised-button disabled>VALIDER</button>
+</div>
