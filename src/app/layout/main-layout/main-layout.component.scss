@@ -5,9 +5,9 @@
 }
 
 main {
-  @apply block h-full overflow-auto opacity-95 rounded-[2rem];
+  @apply block h-full p-4 overflow-auto opacity-95 rounded-[2rem];
 }
 
 :host.showBackground main {
-    @apply bg-white ;
+    @apply bg-white;
 }
