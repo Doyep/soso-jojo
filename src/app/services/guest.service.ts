@@ -39,4 +39,9 @@ export class GuestService {
       .filter(g => g.id !== guest.id)
       .some(g => g.firstName === guest.firstName && g.lastName === guest.lastName)
   }
+
+  public resetList() {
+    this._guests = [];
+    this.$_guests.next(this._guests)
+  }
 }
