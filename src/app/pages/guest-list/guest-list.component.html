@@ -25,5 +25,11 @@
 
 <div class="flex gap-4 justify-between mb-2 flex-none">
   <button class="flex-1" mat-raised-button [routerLink]="['/announcement']">RETOUR</button>
-  <button class="flex-1" mat-raised-button disabled>VALIDER</button>
+  <button class="flex-1" mat-raised-button [disabled]="invalid || sending" (click)="onSubmit()">
+    @if (sending) {
+      EN COURS
+    } @else {
+      VALIDER
+    }
+    </button>
 </div>
