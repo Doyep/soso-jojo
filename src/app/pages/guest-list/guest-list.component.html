@@ -1,4 +1,4 @@
-<h1 class="!font-courgette text-center">Votre réponse</h1>
+<div class="flex-none mb-4 font-courgette text-3xl text-center">Votre réponse</div>
 <button mat-raised-button class="mb-8 flex-none !bg-gold" (click)="onCreate()">
   <mat-icon>add</mat-icon>
   Ajouter une personne
@@ -18,18 +18,19 @@
     </mat-card>
   } @empty {
     <mat-card>
-      <mat-card-content>Vous devez ajouter au moins une personne pour valider votre réponse</mat-card-content>
+      <mat-card-content>
+          Vous devez ajouter au moins une personne pour valider votre réponse
+      </mat-card-content>
     </mat-card>
   }
 </div>
 
-<div class="flex gap-4 justify-between mb-2 flex-none">
-  <button class="flex-1" mat-raised-button [routerLink]="['/announcement']">RETOUR</button>
+<footer class="flex-none mb-2 flex gap-4 justify-between">
+  <button class="flex-1" mat-raised-button [routerLink]="['/informations']">
+    <mat-icon>arrow_back</mat-icon>
+    <span class="font-cinzel">Retour</span>
+  </button>
   <button class="flex-1" mat-raised-button [disabled]="invalid || sending" (click)="onSubmit()">
-    @if (sending) {
-      EN COURS
-    } @else {
-      VALIDER
-    }
-    </button>
-</div>
+    <span class="font-cinzel">{{ sending ? 'EN COURS' : 'VALIDER' }}</span>
+  </button>
+</footer>

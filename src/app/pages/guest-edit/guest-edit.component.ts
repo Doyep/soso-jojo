@@ -9,11 +9,12 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ToastService } from '../../services/toast.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-guest-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatInputModule, RouterModule],
+  imports: [ReactiveFormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatInputModule, RouterModule],
   templateUrl: './guest-edit.component.html',
   styleUrl: './guest-edit.component.scss'
 })

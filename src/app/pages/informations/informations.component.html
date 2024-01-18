@@ -1,0 +1,28 @@
+<main class="flex-1 flex flex-col items-center text-center">
+  <div class="mb-4 font-courgette text-3xl">Infos Pratiques</div>
+  <img class="w-60 mb-10" src="assets/images/mountains-mini.png">
+  <div class="font-cinzel text-lg">Eglise Sainte-Croix</div>
+  <div class="mb-4 font-dancing text-xl">84-85 Grande Rue, 57820 Henridorff</div>
+  <div class="font-cinzel text-lg">Espace Clément</div>
+  <div class="mb-8 font-dancing text-xl">4 Chemin Saint-Ulrich, 57400 Haut-Clocher</div>
+  <img class="w-60 mb-8" src="assets/images/party-mini.png">
+
+  <div class="mb-8 font-dancing text-xl">
+    Nous ne demandons pas de cadeaux,
+    mais un petit quelque chose pour remplir notre urne de mariage qui servira
+    à financer notre voyage de noces
+  </div>
+
+  <div class="font-dancing text-xl">Merci de nous confirmer votre présence avant le 29 février 2024</div>
+</main>
+
+<footer class="flex-none mb-2 flex gap-4 justify-between">
+  <button class="flex-1" mat-raised-button [routerLink]="['/announcement']">
+    <mat-icon>arrow_back</mat-icon>
+    <span class="font-cinzel">Retour</span>
+  </button>
+  <button class="flex-1" mat-raised-button [routerLink]="['/list']">
+    <mat-icon>mail_outline</mat-icon>
+    <span class="font-cinzel">Répondre</span>
+  </button>
+</footer>
