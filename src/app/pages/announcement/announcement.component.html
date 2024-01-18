@@ -1,14 +1,21 @@
-<img class="w-60 self-center mt-4 mb-4" src="assets/images/announcement-mini.png">
-<p class="dancing !mb-4">ont la joie de vous convier à leur</p>
-<p class="cinzel !mb-4">mariage</p>
-<p class="dancing !mb-4">qui sera célébré</p>
-<p class="cinzel !mb-4">le 18 mai 2024</p>
-<p class="dancing !mb-8">à l'Eglise Sainte-Croix de Henridorff à 15h30</p>
-<p class="dancing !mb-8">
-  A l'issue de la cérémonie le vin d'honneur sera servi
-  à L'Espace Clément au Haut-clocher
-</p>
+<main class="flex-1 flex flex-col items-center text-center">
+  <img class="w-60 mb-4" src="assets/images/announcement-mini.png">
 
-<button class="flex-none" mat-raised-button (click)="navigateToList()">
-  <span class="font-cinzel">répondre à l'invitation</span>
+  <div class="mb-4 font-dancing text-xl">ont la joie de vous convier à leur</div>
+
+  <div class="mb-4 font-cinzel text-3xl">mariage</div>
+
+  <div class="mb-4 font-dancing text-xl">qui sera célébré</div>
+
+  <div class="mb-4 font-cinzel text-3xl">le 18 mai 2024</div>
+
+  <div class="mb-8 font-dancing text-xl">à l'Eglise Sainte-Croix de Henridorff à 15h30</div>
+
+  <div class="font-dancing text-xl">
+    A l'issue de la cérémonie le vin d'honneur sera servi à L'Espace Clément au Haut-clocher
+  </div>
+</main>
+
+<button class="flex-none mb-2" mat-raised-button [routerLink]="['/informations']">
+  <span class="font-cinzel">Infos Pratiques</span>
 </button>
