@@ -1,25 +1,29 @@
-<div class="flex-none mb-4 font-courgette text-3xl text-center">
-  {{ mode === 'create' ? 'Ajouter' : 'Modifier' }} un invité
-</div>
+<app-title>{{ mode === 'create' ? 'Ajouter' : 'Modifier' }} un invité</app-title>
 
-<form class="flex-1">
-  <div [formGroup]="formGroup">
-    <mat-form-field appearance="outline" class="mb-4">
-      <mat-label>Nom</mat-label>
-      <input matInput formControlName="lastName">
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="mb-4">
-      <mat-label>Prénom</mat-label>
-      <input matInput formControlName="firstName">
-    </mat-form-field>
-    <mat-button-toggle-group formControlName="status">
-      <mat-button-toggle value="absent">Absent</mat-button-toggle>
-      <mat-button-toggle value="present">Présent</mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
+<form
+  [formGroup]="formGroup"
+  class="flex-1 flex flex-col gap-4 overflow-auto">
+  <mat-form-field appearance="outline" class="mt-1">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="lastName">
+    @if (formGroup.get('lastName')?.invalid) {
+      <mat-error>Ce champs est obligatoire</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="firstName">
+    @if (formGroup.get('firstName')?.invalid) {
+      <mat-error>Ce champs est obligatoire</mat-error>
+    }
+  </mat-form-field>
+  <mat-button-toggle-group formControlName="status" class="w-fit">
+    <mat-button-toggle value="absent">Absent</mat-button-toggle>
+    <mat-button-toggle value="present">Présent</mat-button-toggle>
+  </mat-button-toggle-group>
 </form>
 
-<footer class="flex-none mb-2 flex gap-4 justify-between">
+<app-footer>
   <button class="flex-1" mat-raised-button [routerLink]="['/list']">
     <mat-icon>arrow_back</mat-icon>
     <span class="font-cinzel">Retour</span>
@@ -27,4 +31,5 @@
   <button class="flex-1 !bg-gold" mat-raised-button [disabled]="formGroup.invalid" (click)="onSubmit()">
     <span class="font-cinzel">{{ mode === 'create' ? 'Ajouter' : 'Modifier' }}</span>
   </button>
-</footer>
+</app-footer>
+
