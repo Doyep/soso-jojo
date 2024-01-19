@@ -1,5 +1,9 @@
-<div class="background">
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+<div class="w-screen sm:w-[30rem] h-dvh sm:p-4">
+  <div class="w-full h-full p-4 sm:p-1 bg-soso-jojo bg-[-4.5rem_top] sm:rounded-[2rem]">
+    <div
+      class="w-full h-full p-4 opacity-90 rounded-[2rem]"
+      [ngClass]="whiteBackground ? 'bg-white': ''">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
