@@ -12,10 +12,10 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
       { path: 'announcement', component: AnnouncementComponent },
       { path: 'informations', component: InformationsComponent },
       { path: 'list', component: GuestListComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'guest/new', component: GuestEditComponent },
       { path: 'guest/:id', component: GuestEditComponent },
     ]

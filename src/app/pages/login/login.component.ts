@@ -1,18 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
-
-  constructor(private router: Router) { }
-
-  public navigateToAnnouncement() {
-    this.router.navigateByUrl('/announcement')
-  }
-}
+export class LoginComponent { }

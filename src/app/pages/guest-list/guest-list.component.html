@@ -1,36 +1,37 @@
-<div class="flex-none mb-4 font-courgette text-3xl text-center">Votre réponse</div>
-<button mat-raised-button class="mb-8 flex-none !bg-gold" (click)="onCreate()">
+<app-title>Votre réponse</app-title>
+<button mat-raised-button class="flex-none !bg-gold" [routerLink]="['/guest/new']">
   <mat-icon>add</mat-icon>
   Ajouter une personne
 </button>
 
-<div class="flex-1 flex flex-col gap-2 mb-8 overflow-auto">
+<div class="flex-1 flex flex-col gap-4 overflow-auto">
   @for(guest of $guests | async; track guest.id; let i = $index) {
     <mat-card>
-      <mat-card-content class="rounded-[4px]" [ngClass]="{'bg-lime-200/50': guest.status === 'present', 'bg-red-200/50': guest.status === 'absent'}">
+      <mat-card-content
+        class="rounded-[4px] cursor-pointer"
+        [ngClass]="{'bg-lime-200/50': guest.status === 'present', 'bg-red-200/50': guest.status === 'absent'}"
+        [routerLink]="['/guest', guest.id]">
         <div class="flex items-center justify-center">
           <span class="flex-1">{{ guest.firstName}} {{ guest.lastName }}</span>
-          <span [ngClass]="{'text-lime-700': guest.status === 'present', 'text-red-700': guest.status === 'absent'}">{{ guest.status }}</span>
-          <mat-icon class="cursor-pointer ml-4 mr-2 flex-none" [routerLink]="['/guest', guest.id]">create</mat-icon>
-          <mat-icon class="cursor-pointer flex-none text-red-500" (click)="onDelete(guest)">delete</mat-icon>
+          <span [ngClass]="{'text-lime-700': guest.status === 'present', 'text-red-700': guest.status === 'absent'}">{{ getStatus(guest.status) }}</span>
+          <mat-icon class="ml-4 mr-2 flex-none">create</mat-icon>
+          <mat-icon class="flex-none text-red-500" (click)="onDelete(guest)">delete</mat-icon>
         </div>
       </mat-card-content>
     </mat-card>
   } @empty {
     <mat-card>
-      <mat-card-content>
-          Vous devez ajouter au moins une personne pour valider votre réponse
-      </mat-card-content>
+      <mat-card-content>Vous devez ajouter au moins une personne pour valider votre réponse.</mat-card-content>
     </mat-card>
   }
 </div>
 
-<footer class="flex-none mb-2 flex gap-4 justify-between">
+<app-footer>
   <button class="flex-1" mat-raised-button [routerLink]="['/informations']">
     <mat-icon>arrow_back</mat-icon>
     <span class="font-cinzel">Retour</span>
   </button>
   <button class="flex-1" mat-raised-button [disabled]="invalid || sending" (click)="onSubmit()">
-    <span class="font-cinzel">{{ sending ? 'EN COURS' : 'VALIDER' }}</span>
+    <span class="font-cinzel">{{ sending ? 'EN COURS' : 'ENVOYER' }}</span>
   </button>
-</footer>
+</app-footer>

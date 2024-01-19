@@ -1,9 +1,5 @@
 :host {
-  @apply h-full flex flex-col;
-}
-
-mat-form-field {
-  @apply w-full;
+  @apply h-full flex flex-col gap-4;
 }
 
 mat-button-toggle.mat-button-toggle-checked {
@@ -12,6 +8,6 @@ mat-button-toggle.mat-button-toggle-checked {
   }
 
   &[value='absent'] {
-  @apply bg-red-500 font-medium text-white;
+    @apply bg-red-500 font-medium text-white;
   }
 }

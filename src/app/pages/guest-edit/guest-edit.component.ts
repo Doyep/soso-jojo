@@ -10,13 +10,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ToastService } from '../../services/toast.service';
 import { MatIconModule } from '@angular/material/icon';
+import { TitleComponent } from "../../components/title/title.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
   selector: 'app-guest-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatInputModule, RouterModule],
   templateUrl: './guest-edit.component.html',
-  styleUrl: './guest-edit.component.scss'
+  styleUrl: './guest-edit.component.scss',
+  imports: [ReactiveFormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatInputModule, RouterModule, TitleComponent, FooterComponent]
 })
 export class GuestEditComponent {
   id: string = ''

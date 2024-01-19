@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
-import { Guest } from '../../models/guest.model';
+import { Guest, GuestStatus } from '../../models/guest.model';
 import { MatIconModule } from '@angular/material/icon';
 import { GuestService } from '../../services/guest.service';
-import { Observable, catchError, filter, finalize, first, switchMap, tap } from 'rxjs';
+import { EMPTY, Observable, catchError, filter, finalize, first, switchMap, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastService } from '../../services/toast.service';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TitleComponent } from "../../components/title/title.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, MatButtonToggleModule, MatIconModule, MatCardModule, MatProgressSpinnerModule, RouterModule],
   providers: [HttpClientModule],
   templateUrl: './guest-list.component.html',
-  styleUrl: './guest-list.component.scss'
+  styleUrl: './guest-list.component.scss',
+  imports: [CommonModule, HttpClientModule, MatButtonModule, MatIconModule, MatCardModule, RouterLink, TitleComponent, FooterComponent]
 })
 export class GuestListComponent {
   public $guests: Observable<Guest[]>
@@ -32,17 +32,7 @@ export class GuestListComponent {
     private router: Router,
     private toastService: ToastService,
   ) {
-    this.$guests = this.guestService.$guests.pipe(
-      tap(guests => this.invalid = guests.length === 0)
-    )
-  }
-
-  public onCreate() {
-    this.router.navigateByUrl('/guest/new')
-  }
-
-  public onEdit(id: string) {
-    this.router.navigate(['/guest', id])
+    this.$guests = this.guestService.$guests.pipe(tap(guests => this.invalid = guests.length === 0))
   }
 
   public onDelete(guest: Guest) {
@@ -56,13 +46,16 @@ export class GuestListComponent {
       first(),
       filter(guests => guests.length > 0),
       switchMap(guests => this.http.post<any>(path, guests)),
-      tap(() => this.toastService.success('Votre réponse a bien été enregistrée')),
+      tap(() => this.toastService.success('Votre réponse a bien été enregistrée.')),
       tap(() => this.guestService.resetList()),
-      catchError(error => {
-        this.toastService.error('Une erreur est survenue')
-        throw new Error(error)
+      tap(() => this.router.navigate(['announcement'])),
+      catchError(() => {
+        this.toastService.error('Une erreur est survenue, veuillez réessayer ultérieurement.')
+        return EMPTY
       }),
       finalize(() => this.sending = false)
     ).subscribe()
   }
+
+  public getStatus(status: GuestStatus) { return status === 'present' ? 'Présent' : 'Absent' }
 }
