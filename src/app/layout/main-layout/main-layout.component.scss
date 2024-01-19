@@ -1,13 +1,1 @@
-.background {
-  @apply block h-dvh p-8 bg-soso-jojo bg-cover;
-  @apply max-w-[30rem];
-  @apply sm:w-[30rem];
-}
 
-main {
-  @apply block h-full p-4 overflow-auto opacity-95 rounded-[2rem];
-}
-
-:host.showBackground main {
-    @apply bg-white;
-}
