@@ -8,14 +8,22 @@ module.exports = {
       'sm': '30rem'
     },
     extend: {
+      animation: {
+        heartbeat: 'heartbeat 2s infinite',
+      },
       backgroundImage: {
         'soso-jojo': "url('/assets/images/background-mini.jpg')",
       },
       colors: {
-        // 'gold': 'rgb(251, 166, 7)',
         'gold': 'rgb(249, 223, 164)',
         'pine': 'rgb(57, 90, 53)',
       },
+      keyframes: {
+        heartbeat: {
+          '0%, 20%, 40%, 100%': { transform: 'scale(1)' },
+          '10%, 30%': { transform: 'scale(1.2)' },
+        }
+      }
     },
     fontFamily: {
       courgette: 'courgette',
