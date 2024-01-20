@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<app-animated-background></app-animated-background>
+<div class="invisible sm:visible fixed w-full h-dvh top-0 left-0 flex">
+  <div class="flex-1 bg-gradient-to-r from-transparent to-black"></div>
+  <div class="flex-none w-[30rem] bg-black"></div>
+  <div class="flex-1 bg-gradient-to-r from-black to-transparent"></div>
+</div>
+<div class="fixed w-full h-dvh top-0 left-0">
+  <router-outlet></router-outlet>
+</div>
