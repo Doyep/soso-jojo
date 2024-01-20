@@ -1,0 +1,5 @@
+<div class="flex" [ngClass]="setDirectionClass()">
+  @for (id of ids; track id) {
+    <img [src]="generateUrl(id)" class="w-60 mr-4 border-solid border-4 border-white rounded-md">
+  }
+</div>

@@ -1,0 +1,39 @@
+:host {
+  @apply w-full overflow-hidden;
+
+  --img-width: 15rem;
+  --img-number: 10;
+  --duration: 100s;
+  --full-width: calc((var(--img-width) + 1rem) * var(--img-number));
+  --neg-full-width: calc(var(--full-width) * -1);
+}
+
+.scrolling-left {
+  width: var(--full-width);
+  animation: slide-left var(--duration) linear infinite;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(var(--neg-full-width));
+  }
+}
+
+.scrolling-right {
+  width: var(--full-width);
+  animation: slide-right var(--duration) linear infinite;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translate(var(--neg-full-width));
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
