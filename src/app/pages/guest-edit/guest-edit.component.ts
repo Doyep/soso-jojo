@@ -12,13 +12,14 @@ import { ToastService } from '../../services/toast.service';
 import { MatIconModule } from '@angular/material/icon';
 import { TitleComponent } from "../../components/title/title.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-guest-edit',
   standalone: true,
   templateUrl: './guest-edit.component.html',
   styleUrl: './guest-edit.component.scss',
-  imports: [ReactiveFormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatInputModule, RouterModule, TitleComponent, FooterComponent]
+  imports: [NgClass, ReactiveFormsModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatInputModule, RouterModule, TitleComponent, FooterComponent]
 })
 export class GuestEditComponent {
   id: string = ''

@@ -28,7 +28,9 @@
     <mat-icon>arrow_back</mat-icon>
     <span class="font-cinzel">Retour</span>
   </button>
-  <button class="flex-1 !bg-gold" mat-raised-button [disabled]="formGroup.invalid" (click)="onSubmit()">
+  <button class="flex-1"
+    [ngClass]="formGroup.valid ? '!bg-pine' : ''"
+    mat-raised-button [disabled]="formGroup.invalid" (click)="onSubmit()">
     <span class="font-cinzel">{{ mode === 'create' ? 'Ajouter' : 'Modifier' }}</span>
   </button>
 </app-footer>

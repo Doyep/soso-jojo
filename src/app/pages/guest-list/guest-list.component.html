@@ -31,7 +31,7 @@
     <mat-icon>arrow_back</mat-icon>
     <span class="font-cinzel">Retour</span>
   </button>
-  <button class="flex-1" mat-raised-button [disabled]="invalid || sending" (click)="onSubmit()">
+  <button class="flex-1" [ngClass]="invalid ? '' : '!bg-pine'" mat-raised-button [disabled]="invalid || sending" (click)="onSubmit()">
     <span class="font-cinzel">{{ sending ? 'EN COURS' : 'ENVOYER' }}</span>
   </button>
 </app-footer>

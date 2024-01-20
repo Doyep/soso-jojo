@@ -16,7 +16,7 @@ module.exports = {
       },
       colors: {
         'gold': 'rgb(249, 223, 164)',
-        'pine': 'rgb(57, 90, 53)',
+        'pine': 'rgb(145, 170, 137)',
       },
       keyframes: {
         heartbeat: {
