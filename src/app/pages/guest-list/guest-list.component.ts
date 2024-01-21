@@ -12,6 +12,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TitleComponent } from "../../components/title/title.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { BackgroundService } from '../../services/background.service';
 
 @Component({
   selector: 'app-list',
@@ -27,6 +28,7 @@ export class GuestListComponent {
   public sending = false
 
   constructor(
+    private backgroundService: BackgroundService,
     private guestService: GuestService,
     private http: HttpClient,
     private router: Router,
@@ -48,6 +50,7 @@ export class GuestListComponent {
       switchMap(guests => this.http.post<any>(path, guests)),
       tap(() => this.toastService.success('Votre réponse a bien été enregistrée.')),
       tap(() => this.guestService.resetList()),
+      tap(() => this.backgroundService.toggleBackground()),
       tap(() => this.router.navigate(['announcement'])),
       catchError(() => {
         this.toastService.error('Une erreur est survenue, veuillez réessayer ultérieurement.')
