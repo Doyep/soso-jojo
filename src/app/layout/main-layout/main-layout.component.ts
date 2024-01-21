@@ -21,7 +21,7 @@ export class MainLayoutComponent {
     private backgroundService: BackgroundService,
     private router: Router,
   ) {
-    this.backgroundService.$showBackground.pipe(
+    this.backgroundService.$show.pipe(
       takeUntil(this._ngUnsubscribe),
     ).subscribe(state => this.showBackground = state)
   }
@@ -32,7 +32,7 @@ export class MainLayoutComponent {
   }
 
   public onToggleBackground() {
-    this.backgroundService.toggleBackground()
+    this.backgroundService.toggleState()
   }
 
 }

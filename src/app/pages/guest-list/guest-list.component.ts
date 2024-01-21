@@ -50,7 +50,7 @@ export class GuestListComponent {
       switchMap(guests => this.http.post<any>(path, guests)),
       tap(() => this.toastService.success('Votre réponse a bien été enregistrée.')),
       tap(() => this.guestService.resetList()),
-      tap(() => this.backgroundService.toggleBackground()),
+      tap(() => this.backgroundService.toggleState()),
       tap(() => this.router.navigate(['announcement'])),
       catchError(() => {
         this.toastService.error('Une erreur est survenue, veuillez réessayer ultérieurement.')
